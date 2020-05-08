@@ -6,14 +6,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class DeployDemoApplication extends SpringBootServletInitializer {
+public class CRUDDemoApplication extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(DeployDemoApplication.class);
+		return application.sources(CRUDDemoApplication.class);
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(DeployDemoApplication.class, args);
+		SpringApplication.run(CRUDDemoApplication.class, args);
 	}
 }
 // without extending SpringBootServletInitializer, App is not working on my computer, but is working on remote server
