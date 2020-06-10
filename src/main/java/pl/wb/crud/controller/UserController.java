@@ -19,13 +19,13 @@ public class UserController {
     // @Autowired is optional because we are using only one constructor!
     @Autowired
     // constructor injection
-    public UserController (UserService userService) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
     //add mapping for "/list"
     @GetMapping("/list")
-    public String listUsers (Model theModel) {
+    public String listUsers(Model theModel) {
 
         // get users from database
         List<User> theUsers = userService.findAll();
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @GetMapping("/showFormForAdd")
-    public String showFormForAdd(Model theModel){
+    public String showFormForAdd(Model theModel) {
 
         // create model attribute to bind form data
         User theUser = new User();
@@ -47,7 +47,7 @@ public class UserController {
     }
 
     @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("userId") int theId, Model theModel){
+    public String showFormForUpdate(@RequestParam("userId") int theId, Model theModel) {
 
         // get user from the service
         User theUser = userService.findById(theId);
@@ -60,7 +60,7 @@ public class UserController {
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") User theUser){
+    public String saveUser(@ModelAttribute("user") User theUser) {
 
         // save the user
         userService.save(theUser);
@@ -70,7 +70,7 @@ public class UserController {
     }
 
     @GetMapping("/delete")
-    public String delete (@RequestParam("userId") int theId) {
+    public String delete(@RequestParam("userId") int theId) {
 
         // delete user!
         userService.deleteById(theId);
